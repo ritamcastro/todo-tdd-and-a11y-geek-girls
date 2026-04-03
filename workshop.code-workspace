@@ -1,36 +1,30 @@
 {
-	"folders": [
-		{
-			"path": ".",
-			"name": "root"
-		},
-		{
-			"path": "frontend"
-		},
-		{
-			"path": "e2e"
-		},
-	],
-	"settings": {
-		"vitest.shellType": "terminal",
-		"files.exclude": {
-			"**/.git": true,
-			"**/.DS_Store": true,
-			"frontend/": true,
-			"e2e": true,
-		},
-		"editor.defaultFormatter": "biomejs.biome",
-		"editor.codeActionsOnSave": {
-			"source.fixAll.biome": "explicit"
-		},
-		"[css]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[typescriptreact]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"editor.formatOnSave": true,
-		"editor.formatOnType": true,
-		"editor.formatOnPaste": true,
-	}
+  "folders": [
+    {
+      "path": ".",
+      "name": "workshop"
+    }
+  ],
+  "settings": {
+    "vitest.shellType": "terminal",
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true,
+      "frontend/": true,
+      "e2e": true
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "biomejs.biome"
+    },
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true
+  }
 }
