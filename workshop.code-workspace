@@ -3,6 +3,13 @@
     {
       "path": ".",
       "name": "workshop"
+    },
+
+    {
+      "path": "frontend"
+    },
+    {
+      "path": "tests"
     }
   ],
   "settings": {
