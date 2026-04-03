@@ -1,18 +1,24 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { StrictMode, useState } from 'react'
+import { createRoot } from 'react-dom/client'
 
-const rootContainer: Element | DocumentFragment | null =
-	document.getElementById("root");
+const rootContainer: Element | DocumentFragment | null = document.getElementById('root')
 
 const ToDo = () => {
-	return <p>hey</p>;
-};
+  const [newItem, setNewItem] = useState(false)
+
+  return (
+    <>
+      <div onClick={() => setNewItem(true)}>New</div>
+      {newItem && <div>What needs to be done?</div>}
+    </>
+  )
+}
 
 if (rootContainer) {
-	const root = createRoot(rootContainer);
-	root.render(
-		<StrictMode>
-			<ToDo />
-		</StrictMode>,
-	);
+  const root = createRoot(rootContainer)
+  root.render(
+    <StrictMode>
+      <ToDo />
+    </StrictMode>
+  )
 }
