@@ -25,17 +25,24 @@ const ToDo = () => {
     setItems(updatedItems)
   }
 
+  const onDeleteItem = (id: number) => {
+    const updatedItems = items.filter(item => item.id !== id)
+    setItems(updatedItems)
+  }
+
+  const sortedItems = [...items].sort((a, b) => Number(a.isDone) - Number(b.isDone))
+
   return (
-    <>
+    <main>
       <button
         type="button"
         onClick={() => setItems([...items, { id: Date.now(), text: '', isDone: false }])}
       >
         New
       </button>
-      <div>
-        {items.map(item => (
-          <div key={item.id}>
+      <ul>
+        {sortedItems.map(item => (
+          <li key={item.id}>
             <input
               type={'checkbox'}
               checked={item.isDone}
@@ -51,10 +58,16 @@ const ToDo = () => {
                 onChange={e => onChangeItemText(item.id, e.target.value)}
               />
             )}
-          </div>
+            <button
+              type="button"
+              onClick={() => onDeleteItem(item.id)}
+            >
+              🗑️
+            </button>
+          </li>
         ))}
-      </div>
-    </>
+      </ul>
+    </main>
   )
 }
 
