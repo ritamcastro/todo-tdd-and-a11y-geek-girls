@@ -12,7 +12,7 @@
     },
   ],
   "settings": {
-    "biome.enabled": false,  // To avoid spining up multiple instances of biome
+    "biome.enabled": false, // To avoid spining up multiple instances of biome
     "vitest.shellType": "terminal",
     "files.exclude": {
       "**/.git": true,
@@ -20,7 +20,7 @@
       "frontend/": true,
       "e2e": true
     },
-    "editor.defaultFormatter": "biomejs.biome",
+    "editor.defaultFormatter": null,
     "editor.codeActionsOnSave": {
       "source.fixAll.biome": "explicit"
     },
@@ -33,7 +33,6 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
-
     "codesnap.shutterAction": "copy",
     "codesnap.target": "window",
     "codesnap.boxShadow": "0 0 10px rgba(0, 0, 0, 0.5)",
