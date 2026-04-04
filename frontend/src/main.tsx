@@ -3,13 +3,31 @@ import { createRoot } from 'react-dom/client'
 
 const rootContainer: Element | DocumentFragment | null = document.getElementById('root')
 
+type ToDoItem = {
+  id: number
+  text: string
+}
+
 const ToDo = () => {
-  const [newItem, setNewItem] = useState(false)
+  const [items, setItems] = useState<ToDoItem[]>([{ id: Date.now(), text: '' }])
 
   return (
     <>
-      <div onClick={() => setNewItem(true)}>New</div>
-      {newItem && <div>What needs to be done?</div>}
+      <button
+        type="button"
+        onClick={() => setItems([...items, { id: Date.now(), text: '' }])}
+      >
+        New
+      </button>
+      <div>
+        {items.map(item => (
+          <input
+            key={item.id}
+            type="text"
+            placeholder="What needs to be done?"
+          />
+        ))}
+      </div>
     </>
   )
 }
