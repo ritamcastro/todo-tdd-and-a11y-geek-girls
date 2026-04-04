@@ -61,4 +61,40 @@ test.describe('The To-Do application', () => {
 
     await expect(toDoItems.last().getByRole('deletion')).toBeVisible()
   })
+
+  test('I want to delete To-Dos from the list', async ({ page }) => {
+    await page.goto('/')
+
+    const newToDoButton = page.getByRole('main').getByRole('button', { name: 'New' })
+    const toDoList = page.getByRole('main').getByRole('list')
+
+    await toDoList.getByPlaceholder('What needs to be done?').fill('This one we will mark as done and delete')
+
+    await newToDoButton.click()
+    await newToDoButton.click()
+    await newToDoButton.click()
+
+    const toDoItems = toDoList.getByRole('listitem')
+
+    await toDoList.getByPlaceholder('What needs to be done?').nth(1).fill('This one we will keep')
+    await toDoList.getByPlaceholder('What needs to be done?').nth(2).fill('This one we will delete')
+    await toDoList.getByPlaceholder('What needs to be done?').nth(3).fill('This one we also keep')
+
+    await expect(toDoItems).toHaveCount(4)
+
+    await toDoList.getByRole('checkbox').first().check()
+
+    const deleteButtons = await toDoList.getByRole('button', { name: '🗑️' })
+
+    await deleteButtons.last().click()
+    await expect(toDoItems).toHaveCount(3)
+
+    await deleteButtons.nth(1).click()
+    await expect(toDoItems).toHaveCount(2)
+
+    const toDoText = page.getByPlaceholder('What needs to be done?')
+
+    await expect(toDoText.first()).toHaveValue('This one we will keep')
+    await expect(toDoText.nth(1)).toHaveValue('This one we also keep')
+  })
 })
