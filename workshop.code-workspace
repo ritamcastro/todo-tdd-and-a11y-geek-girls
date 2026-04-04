@@ -32,6 +32,12 @@
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+
+    "codesnap.shutterAction": "copy",
+    "codesnap.target": "window",
+    "codesnap.boxShadow": "0 0 10px rgba(0, 0, 0, 0.5)",
+    "codesnap.containerPadding": "1em",
+    "codesnap.backgroundColor": "rgba(1,1,1, 0.1)"
   }
 }
