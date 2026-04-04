@@ -4,15 +4,15 @@
       "path": ".",
       "name": "workshop"
     },
-
     {
       "path": "frontend"
     },
     {
       "path": "tests"
-    }
+    },
   ],
   "settings": {
+    "biome.enabled": false,  // To avoid spining up multiple instances of biome
     "vitest.shellType": "terminal",
     "files.exclude": {
       "**/.git": true,
@@ -28,7 +28,7 @@
       "editor.defaultFormatter": "biomejs.biome"
     },
     "[typescriptreact]": {
-      "editor.defaultFormatter": "biomejs.biome"
+      "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
