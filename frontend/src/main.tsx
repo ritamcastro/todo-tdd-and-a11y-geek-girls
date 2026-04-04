@@ -19,6 +19,12 @@ const ToDo = () => {
     setItems(updatedItems)
   }
 
+  const onChangeItemText = (id: number, value: string) => {
+    const updatedItems = items.map(item => (item.id === id ? { ...item, text: value } : item))
+
+    setItems(updatedItems)
+  }
+
   return (
     <>
       <button
@@ -35,11 +41,16 @@ const ToDo = () => {
               checked={item.isDone}
               onChange={() => onToggleItem(item.id)}
             />
-            <input
-              type="text"
-              placeholder="What needs to be done?"
-              style={{ textDecoration: item.isDone ? 'line-through' : 'none' }}
-            />
+            {item.isDone ? (
+              <del>{item.text}</del>
+            ) : (
+              <input
+                type="text"
+                placeholder="What needs to be done?"
+                value={item.text}
+                onChange={e => onChangeItemText(item.id, e.target.value)}
+              />
+            )}
           </div>
         ))}
       </div>
