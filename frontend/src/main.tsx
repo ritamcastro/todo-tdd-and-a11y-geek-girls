@@ -1,5 +1,6 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import clipboardIcon from '../assets/clipboard.svg'
 
 const rootContainer: Element | DocumentFragment | null = document.getElementById('root')
 
@@ -33,41 +34,52 @@ const ToDo = () => {
   const sortedItems = [...items].sort((a, b) => Number(a.isDone) - Number(b.isDone))
 
   return (
-    <main>
-      <button
-        type="button"
-        onClick={() => setItems([...items, { id: Date.now(), text: '', isDone: false }])}
-      >
-        New
-      </button>
-      <ul>
-        {sortedItems.map(item => (
-          <li key={item.id}>
-            <input
-              type={'checkbox'}
-              checked={item.isDone}
-              onChange={() => onToggleItem(item.id)}
-            />
-            {item.isDone ? (
-              <del>{item.text}</del>
-            ) : (
+    <>
+      <div>
+        <img
+          alt="Clipboard"
+          src={clipboardIcon}
+          height="60"
+          width="60"
+        />
+        Geek Girls To-Do
+      </div>
+      <main>
+        <button
+          type="button"
+          onClick={() => setItems([...items, { id: Date.now(), text: '', isDone: false }])}
+        >
+          New
+        </button>
+        <ul>
+          {sortedItems.map(item => (
+            <li key={item.id}>
               <input
-                type="text"
-                placeholder="What needs to be done?"
-                value={item.text}
-                onChange={e => onChangeItemText(item.id, e.target.value)}
+                type={'checkbox'}
+                checked={item.isDone}
+                onChange={() => onToggleItem(item.id)}
               />
-            )}
-            <button
-              type="button"
-              onClick={() => onDeleteItem(item.id)}
-            >
-              🗑️
-            </button>
-          </li>
-        ))}
-      </ul>
-    </main>
+              {item.isDone ? (
+                <del>{item.text}</del>
+              ) : (
+                <input
+                  type="text"
+                  placeholder="What needs to be done?"
+                  value={item.text}
+                  onChange={e => onChangeItemText(item.id, e.target.value)}
+                />
+              )}
+              <button
+                type="button"
+                onClick={() => onDeleteItem(item.id)}
+              >
+                🗑️
+              </button>
+            </li>
+          ))}
+        </ul>
+      </main>
+    </>
   )
 }
 
