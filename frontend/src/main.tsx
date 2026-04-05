@@ -1,7 +1,8 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
+import clipImage from '../assets/clip.svg'
 import clipboardIcon from '../assets/clipboard.svg'
-
+import './main.css'
 const rootContainer: Element | DocumentFragment | null = document.getElementById('root')
 
 type ToDoItem = {
@@ -35,7 +36,7 @@ const ToDo = () => {
 
   return (
     <>
-      <div>
+      <div className="cb-header">
         <img
           alt="Clipboard"
           src={clipboardIcon}
@@ -44,8 +45,9 @@ const ToDo = () => {
         />
         Geek Girls To-Do
       </div>
-      <main>
+      <main className="cb-page">
         <button
+          className="cb-btn"
           type="button"
           onClick={() => setItems([...items, { id: Date.now(), text: '', isDone: false }])}
         >
@@ -53,16 +55,20 @@ const ToDo = () => {
         </button>
         <ul>
           {sortedItems.map(item => (
-            <li key={item.id}>
+            <li
+              key={item.id}
+              className="cb-item"
+            >
               <input
                 type={'checkbox'}
                 checked={item.isDone}
                 onChange={() => onToggleItem(item.id)}
               />
               {item.isDone ? (
-                <del>{item.text}</del>
+                <del className="cb-done">{item.text}</del>
               ) : (
                 <input
+                  className="cb-input"
                   type="text"
                   placeholder="What needs to be done?"
                   value={item.text}
@@ -70,6 +76,7 @@ const ToDo = () => {
                 />
               )}
               <button
+                className="cb-btn"
                 type="button"
                 onClick={() => onDeleteItem(item.id)}
               >
