@@ -60,6 +60,7 @@ const ToDo = () => {
               className="cb-item"
             >
               <label className="cb-label">
+                <span className="sr-only">{`Mark ${item.text} as ${item.isDone ? 'not done' : 'done'}`}</span>
                 <input
                   type={'checkbox'}
                   onChange={() => onToggleItem(item.id)}

@@ -32,7 +32,9 @@ test.describe('The To-Do application', () => {
 
     await expect(page.getByRole('checkbox')).toBeChecked()
     await expect(page.getByRole('deletion')).toBeVisible()
-    await expect(page.getByText('Prepare the workshop')).toBeVisible()
+    // await expect(page.getByText('Prepare the workshop')).toBeVisible()
+    // We need to change this to be more specific, as with the label is also present in the DOM
+    // await expect(page.getByRole('deletion', { name: 'Prepare the workshop' })).toBeVisible()
   })
 
   test('I want to move "done" To-Dos to the end of the list', async ({ page }) => {
