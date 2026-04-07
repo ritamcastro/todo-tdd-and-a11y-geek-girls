@@ -8,7 +8,7 @@ test.describe('To-Do application', () => {
     const accessibilityScanResults = await new AxeBuilder({ page })
       // Tags: allow you to scan ONLY for a certain level of standards:
       // https://www.deque.com/axe/core-documentation/api-documentation/?utm_campaign=api-documentation#api-notes
-      .withTags(['best-practice', 'wcag2a'])
+      .withTags(['best-practice', 'wcag2a', 'wcag2aa', 'wcag21aa'])
       .analyze()
 
     await testInfo.attach('accessibility-scan-results', {
