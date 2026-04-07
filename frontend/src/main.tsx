@@ -36,15 +36,15 @@ const ToDo = () => {
 
   return (
     <>
-      <div className="cb-header">
+      <header className="cb-header">
         <img
           alt="Clipboard"
           src={clipboardIcon}
           height="60"
           width="60"
         />
-        Geek Girls To-Do
-      </div>
+        <h1>Geek Girls To-Do</h1>
+      </header>
       <main className="cb-page">
         <button
           className="cb-btn"
@@ -59,22 +59,23 @@ const ToDo = () => {
               key={item.id}
               className="cb-item"
             >
-              <input
-                type={'checkbox'}
-                checked={item.isDone}
-                onChange={() => onToggleItem(item.id)}
-              />
-              {item.isDone ? (
-                <del className="cb-todo">{item.text}</del>
-              ) : (
+              <label className="cb-label">
                 <input
-                  className="cb-todo"
-                  type="text"
-                  placeholder="What needs to be done?"
-                  value={item.text}
-                  onChange={e => onChangeItemText(item.id, e.target.value)}
+                  type={'checkbox'}
+                  onChange={() => onToggleItem(item.id)}
                 />
-              )}
+                {item.isDone ? (
+                  <del className="cb-todo">{item.text}</del>
+                ) : (
+                  <input
+                    className="cb-todo"
+                    type="text"
+                    placeholder="What needs to be done?"
+                    value={item.text}
+                    onChange={e => onChangeItemText(item.id, e.target.value)}
+                  />
+                )}
+              </label>
               <button
                 className="cb-btn"
                 type="button"
