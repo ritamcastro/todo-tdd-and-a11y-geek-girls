@@ -37,6 +37,9 @@
     "codesnap.target": "window",
     "codesnap.boxShadow": "0 0 10px rgba(0, 0, 0, 0.5)",
     "codesnap.containerPadding": "1em",
-    "codesnap.backgroundColor": "rgba(1,1,1, 0.1)"
+    "codesnap.backgroundColor": "rgba(1,1,1, 0.1)",
+    "[json]": {
+      "editor.defaultFormatter": "vscode.json-language-features"
+    }
   }
 }
