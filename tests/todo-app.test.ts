@@ -1,4 +1,3 @@
-import { todo } from 'node:test'
 import { expect, test } from '@playwright/test'
 
 test.describe('The To-Do application', () => {
@@ -96,5 +95,20 @@ test.describe('The To-Do application', () => {
 
     await expect(toDoText.first()).toHaveValue('This one we will keep')
     await expect(toDoText.nth(1)).toHaveValue('This one we also keep')
+  })
+
+  test('I want to bring back a To-Do that was marked as done', async ({ page }) => {
+    await page.goto('/')
+
+    const todoText = page.getByPlaceholder('What needs to be done?')
+
+    await todoText.fill('Prepare the workshop')
+    await todoText.blur()
+
+    await page.getByRole('checkbox').click()
+
+    await expect(page.getByLabel('Prepare the workshop')).toBeChecked()
+
+    await page.getByLabel('Prepare the workshop').click()
   })
 })
