@@ -20,9 +20,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
       - name: Setup Node.js
         uses: actions/setup-node@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           node-version: 24
           cache: 'npm'
@@ -30,6 +34,7 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+  
 
       - name: Build frontend
         run: npm run build
@@ -38,12 +43,17 @@ jobs:
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  
         with:
           path: frontend/dist
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
 
   # Run E2E tests against deployed site
   e2e-tests:
@@ -55,17 +65,21 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
       - name: Setup Node.js
         uses: actions/setup-node@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
           cache-dependency-path: e2e/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-
+ 
       - name: Run E2E tests
         env:
           BASE_URL: ${{ steps.deployment.outputs.page_url }}
