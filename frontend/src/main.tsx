@@ -1,6 +1,5 @@
 import { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import clipImage from '../assets/clip.svg'
 import clipboardIcon from '../assets/clipboard.svg'
 import './main.css'
 const rootContainer: Element | DocumentFragment | null = document.getElementById('root')
