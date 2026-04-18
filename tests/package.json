@@ -1,12 +1,21 @@
 {
-  "name": "tests",
+  "name": "tests-todo-tdd-and-a11y-geek-girls",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright tests for the To-Do Application",
+  "author": "Rita Castro",
+  "license": "MIT",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "playwright",
+    "tdd",
+    "a11y",
+    "workshop"
+  ],
+  "scripts": {
+    "pretest": "npx playwright install --with-deps",
+    "test": "npx playwright test",
+    "test-ui": "playwright test --ui"
+  },
   "type": "commonjs",
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",
