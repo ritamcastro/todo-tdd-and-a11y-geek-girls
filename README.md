@@ -46,5 +46,11 @@ npm i
 npm run test
 ```
 
+## Following the worskshop contents
+
+If you take a look at the commits history, you will find it going hand-in-hand with the presentation and the different tests that were added. Use the branches to navigate if needed and if you have any questions, please do reach out :)
+
+If you attended this workshop, thank you. Your presence and feedback was very much appreciated 🙏
+
 ____
 ©️ ritamcastro 2026 💜
